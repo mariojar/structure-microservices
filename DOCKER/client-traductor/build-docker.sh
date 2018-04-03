@@ -1,0 +1,1 @@
+docker build -t microservices-study/client-traductor ./

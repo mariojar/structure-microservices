@@ -1,0 +1,3 @@
+it/edu/microservices/traductor/bean/Greeting.class
+it/edu/microservices/traductor/italian/rest/ItalianController.class
+it/edu/microservices/traductor/italian/main/ItalianBootConfiguration.class

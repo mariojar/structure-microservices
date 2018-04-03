@@ -1,0 +1,9 @@
+it/edu/microservices/traductor/bean/Greeting.class
+decancella/Main.class
+decancella/Blog$Manager.class
+decancella/BlogImpl.class
+it/edu/microservices/traductor/client/rest/ClientController$1.class
+decancella/BlogManagerImpl.class
+it/edu/microservices/traductor/client/rest/ClientController.class
+it/edu/microservices/traductor/client/main/ClientTraductorBoot.class
+decancella/Blog.class
