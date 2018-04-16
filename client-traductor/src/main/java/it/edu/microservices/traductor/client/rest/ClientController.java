@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -31,6 +33,7 @@ public class ClientController {
 //	public static final String BASE_URL_ITALIAN = "http://172.17.0.1:8102/traductor/";
 //	public static final String BASE_URL_SPANISH = "http://172.17.0.1:8102/traductor/";
 	
+	private Logger LOGGER = LogManager.getLogger();
 	
 	public static final String BASE_URL_ITALIAN = "http://italian/traductor/italian";
 	public static final String BASE_URL_SPANISH = "http://spanish/traductor/spanish";
@@ -74,11 +77,15 @@ public class ClientController {
 	public List<Greeting> getGreetings(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String,String> requestParameters){
 		
 		String language=requestParameters.get("language");
+		LOGGER.debug("start traductor client {} " ,language);
+		
 		String baseUrl= "spanish".equals(language)?BASE_URL_SPANISH:BASE_URL_ITALIAN;
 		
 		ResponseEntity<List<Greeting>> greetingResponse = this.restTemplate.exchange(baseUrl,HttpMethod.GET,null,
 				new ParameterizedTypeReference<List<Greeting>>() {
 		});
+		
+		LOGGER.debug("end traductor client response recived" ,greetingResponse);
 		return greetingResponse.getBody();
 	} 
 }

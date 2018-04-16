@@ -13,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import it.edu.microservices.traductor.bean.Greeting;
 
 @RestController
 @RequestMapping(path = "/traductor/italian", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ItalianController {
+	
+	private Logger LOGGER = LogManager.getLogger(); 
 	
 	private @Value("${configuration.greeting}") 
 	String defaultGreeting;
@@ -28,6 +32,8 @@ public class ItalianController {
 	@RequestMapping(method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
 	public List<Greeting> traductor(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String,String> requestParameters){
 		
+		LOGGER.debug("start traductor italian {} " ,requestParameters);
+		
 		String greeting = defaultGreeting == null || defaultGreeting.isEmpty() ? " Non ci siamo con la configurazione centralizata del server " : defaultGreeting; 
 		
 		
@@ -36,7 +42,8 @@ public class ItalianController {
 		regards.add(greet);
 		
 		System.out.println(greeting + ++counter);
-//		return "{\"saluto\":\""+greeting+"" + counter +"\"}";
+		
+		LOGGER.debug("end traductor italian with greet {} and counter {} " ,greet, counter);
 		
 		return regards;
 		
