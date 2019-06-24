@@ -16,7 +16,7 @@ import it.edu.microservices.traductor.client.rest.ClientController;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @ComponentScan(basePackageClasses = {ClientController.class})
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class ClientTraductorBoot {
 	
 	@LoadBalanced
