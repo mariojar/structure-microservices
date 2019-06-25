@@ -4,7 +4,7 @@ spring:
   profiles:
     active: dev
 server:
-    port : 3000    
+    port : 80   
 #  cloud:
 #    config:
 #      uri: http://172.17.0.1:9000
