@@ -4,3 +4,5 @@
 #      defaultZone: http://172.17.0.1:8761/eureka
 #  instance:
 #    preferIpAddress: true
+server:
+    port : 8080
