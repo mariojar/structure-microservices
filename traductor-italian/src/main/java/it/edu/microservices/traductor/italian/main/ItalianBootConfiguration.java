@@ -13,7 +13,7 @@ import it.edu.microservices.traductor.italian.rest.ItalianController;
 @SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @ComponentScan(basePackageClasses = {ItalianController.class})
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class ItalianBootConfiguration {
 	
 	public static void main(String[] args) {

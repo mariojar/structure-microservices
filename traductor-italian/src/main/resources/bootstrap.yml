@@ -3,8 +3,10 @@ spring:
     name: italian
   profiles:
     active: dev
-  cloud:
-    config:
-      uri: http://172.17.0.1:9000
-      failFast: true #questo ancoera non so a che serve, vedo dopo
-      enabled: true #questo ancoera non so a che serve, vedo dopo
+server:
+    port : 8102
+#  cloud:
+#    config:
+#      uri: http://172.17.0.1:9000
+#      failFast: true 
+#      enabled: true 

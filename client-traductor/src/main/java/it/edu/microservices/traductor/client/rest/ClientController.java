@@ -30,13 +30,16 @@ import it.edu.microservices.traductor.bean.Greeting;
 @RequestMapping(path = "/traductor/client", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ClientController {
 	
-//	public static final String BASE_URL_ITALIAN = "http://172.17.0.1:8102/traductor/";
-//	public static final String BASE_URL_SPANISH = "http://172.17.0.1:8102/traductor/";
+	//public static final String BASE_URL_ITALIAN = "http://172.17.0.1:8102/traductor/";
+	//public static final String BASE_URL_SPANISH = "http://172.17.0.1:8103/traductor/";
+	
+	public static final String BASE_URL_ITALIAN = "http://localhost:8102/traductor/italian";
+	public static final String BASE_URL_SPANISH = "http://localhost:8103/traductor/spanish";
 	
 	private Logger LOGGER = LogManager.getLogger();
 	
-	public static final String BASE_URL_ITALIAN = "http://italian/traductor/italian";
-	public static final String BASE_URL_SPANISH = "http://spanish/traductor/spanish";
+//	public static final String BASE_URL_ITALIAN = "http://italian/traductor/italian";
+//	public static final String BASE_URL_SPANISH = "http://spanish/traductor/spanish";
 	
 	private static int counter = 0 ;
 	
@@ -75,7 +78,6 @@ public class ClientController {
 	
 	@RequestMapping(method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
 	public List<Greeting> getGreetings(HttpServletRequest request, HttpServletResponse response,@RequestParam Map<String,String> requestParameters){
-		
 		String language=requestParameters.get("language");
 		LOGGER.debug("start traductor client {} " ,language);
 		

@@ -3,3 +3,9 @@
 .target/
 .settings/
 /.metadata/
+
+.idea/
+
+DOCKER/DOCKER.iml
+
+*.jar
