@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/health", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/health", consumes = MediaType.ALL_VALUE, produces = MediaType.ALL_VALUE)
 public class Health {
 	
 	private Logger LOGGER = LogManager.getLogger();
 	
-	@RequestMapping(method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<String> getGreetings(HttpServletRequest request, HttpServletResponse response){
 		
 		
 		
-		ResponseEntity<String> response1 = new ResponseEntity<String>("Ciao  tutto bene", HttpStatus.OK);
+		ResponseEntity<String> response1 = new ResponseEntity<String>("Hola mundo todo bien", HttpStatus.OK);
 		
-		LOGGER.debug("health " ,response1);
+		LOGGER.info("health : " + response1.toString());
 		return response1;
 	} 
 }
