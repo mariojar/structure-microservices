@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-traductor
+  namespace: namespace-traductor
+data:
+  application-dev.yml: |-
+    configuration:
+      greeting: Client traductor ConfigurationsMap Kubernetes V2.
+    server:
+      port: 8080
+    services:
+      serviceA:
+        url: http://localhost/serviceA
+      serviceB:
+        url: http://localhost/serviceA
+      serviceC:
+        url: http://localhost/serviceA
+      serviceD:
+        url: http://localhost/serviceA
+    logging:
+      level:
+        org.hibernate: INFO

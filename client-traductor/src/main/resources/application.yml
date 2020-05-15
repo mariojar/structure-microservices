@@ -5,4 +5,6 @@
 #  instance:
 #    preferIpAddress: true
 server:
-    port : 8080
+   port : 8080
+configuration:
+  greeting: Hello World Oracolo. Local Configuration   

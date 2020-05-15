@@ -1,10 +1,10 @@
 spring:
   application:
-    name: client
-  profiles:
-    active: dev
-server:
-    port : 8080   
+    name: client-traductor
+#  profiles:
+#    active: dev
+#server:
+#    port : 8080   
 #  cloud:
 #    config:
 #      uri: http://172.17.0.1:9000

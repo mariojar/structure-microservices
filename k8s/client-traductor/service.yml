@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-traductor
+  namespace: namespace-traductor
+  labels:
+    name: client-traductor
+spec:
+  ports:
+  - name: clients1
+    protocol: TCP
+    targetPort: 8080
+    port: 8080  
+  selector:
+    name: client-traductor

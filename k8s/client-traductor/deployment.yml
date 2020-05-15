@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: client-traductor
+  namespace: namespace-traductor
+  annotations:
+    configmap.fabric8.io/update-on-change: client-traductor
+  labels:
+    name: client-traductor
+    environment: dev
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  selector:
+    matchLabels:
+      name: client-traductor
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:      
+      labels:
+        name: client-traductor
+    spec:
+      containers:
+      - image: gcr.io/lasis-271808/client-traductor:v1
+        imagePullPolicy: Always
+        name: client-traductor
+        env:
+        - name: ACTIVE_PROFILE
+          value: dev
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          - name: volume-client-traductor
+            mountPath: /deployments/config
+      volumes:
+      - name: volume-client-traductor
+        configMap:
+          name: client-traductor
+          items:
+          - key: application-dev.yml
+            path: application-dev.yml
